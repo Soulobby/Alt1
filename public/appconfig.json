@@ -1,0 +1,16 @@
+{
+	"appName": "Soulobby",
+	"description": "Soulobby integration.",
+	"appUrl": "./index.html",
+	"configUrl": "./appconfig.json",
+	"iconUrl": "./icon.png",
+	"defaultWidth": 200,
+	"defaultHeight": 90,
+	"minWidth": 200,
+	"minHeight": 90,
+	"maxWidth": 200,
+	"maxHeight": 90,
+	"requestHandlers": [],
+	"activators": [],
+	"permissions": "pixel"
+}

@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+	--color-rs-dark: #181818;
+	--color-rs-medium: #2e2e2e;
+	--color-rs-light: #4d4d4d;
+	--color-rs-accent: #ffb44c;
+}
+
+@layer base {
+	*,
+	::after,
+	::before,
+	::backdrop,
+	::file-selector-button {
+		border-color: var(--color-gray-200, currentColor);
+	}
+}
+
+@utility alt1-warning {
+	@apply p-4 bg-yellow-500/20 border border-yellow-500 rounded-md mb-4;
+}
+@utility social-icon {
+	@apply inline-flex mx-1 text-gray-400 hover:text-rs-accent transition-colors;
+}
+
+@layer utilities {
+	body.nis {
+		@apply bg-rs-dark text-white min-h-screen;
+	}
+}
