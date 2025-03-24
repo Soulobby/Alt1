@@ -92,7 +92,7 @@ const App: React.FC = () => {
 						const timeout = setTimeout(() => abortController.abort(), 5000);
 
 						try {
-							await fetch("https://api.soulobby.com", {
+							await fetch("https://api.soulobby.com/messages", {
 								method: "POST",
 								headers: {
 									"Content-Type": "application/json",
