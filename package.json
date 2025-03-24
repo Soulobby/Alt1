@@ -11,6 +11,7 @@
 		"update": "pnpm update --interactive --latest"
 	},
 	"dependencies": {
+		"@icons-pack/react-simple-icons": "^12.3.0",
 		"alt1": "^0.1.0",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0"
