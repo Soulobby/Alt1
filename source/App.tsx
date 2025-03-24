@@ -4,6 +4,7 @@ import type React from "react";
 import { useEffect, useState } from "react";
 import { LINE_REGULAR_EXPRESSION } from "./utility/constants";
 import { isEqualColourTriplet } from "./utility/functions";
+import Overview from "./components/overview";
 
 interface Message {
 	player_name: string;
@@ -122,21 +123,20 @@ const App: React.FC = () => {
 			<div className="flex justify-center items-center min-h-screen">
 				<div className="text-center">
 					<h1 className="text-2xl font-bold text-blue-500">Soulobby</h1>
-					<p className="mt-2 text-lg">
-						{isAlt1Detected ? (
-							"Just keep this open! ~"
-						) : (
-							<div className="alt1-warning">
-								<p>Alt1 not detected!</p>
-								<a
-									href={`alt1://addapp/${new URL("./appconfig.json", document.location.href).href}`}
-									className="text-rs-accent hover:underline"
-								>
-									Click here to add this app to Alt1!
-								</a>
-							</div>
-						)}
-					</p>
+					{isAlt1Detected ? (
+						<p className="mt-2 text-lg">"Just keep this open! ~"</p>
+					) : (
+						<div className="alt1-warning">
+							<p>Alt1 not detected!</p>
+							<a
+								href={`alt1://addapp/${new URL("./appconfig.json", document.location.href).href}`}
+								className="text-rs-accent hover:underline"
+							>
+								Click here to add this app to Alt1!
+							</a>
+						</div>
+					)}
+					<Overview />
 				</div>
 			</div>
 			<div className="fixed bottom-4 right-4 flex space-x-2">
