@@ -121,24 +121,7 @@ const App: React.FC = () => {
 
 	return (
 		<div className="p-4">
-			<div className="flex justify-center items-center min-h-screen">
-				<div className="text-center">
-					<h1 className="text-2xl font-bold text-blue-500">Soulobby</h1>
-					{!isAlt1Detected && (
-						<div className="alt1-warning">
-							<p>Alt1 not detected!</p>
-							<a
-								href={`alt1://addapp/${new URL("./appconfig.json", document.location.href).href}`}
-								className="text-rs-accent hover:underline"
-							>
-								Click here to add this app to Alt1!
-							</a>
-						</div>
-					)}
-					<Overview />
-				</div>
-			</div>
-			<div className="fixed bottom-4 right-4 flex space-x-2">
+			<div className="fixed top-4 right-4 flex space-x-2">
 				<a
 					href="https://discord.gg/tucxgUNzZ4"
 					target="_blank"
@@ -156,6 +139,23 @@ const App: React.FC = () => {
 				>
 					<SiGithub className="h-5 w-5" />
 				</a>
+			</div>
+			<div className="flex justify-center items-center min-h-screen">
+				<div className="text-center">
+					<h1 className="text-2xl font-bold text-blue-500">Soulobby</h1>
+					{!isAlt1Detected && (
+						<div className="alt1-warning">
+							<p>Alt1 not detected!</p>
+							<a
+								href={`alt1://addapp/${new URL("./appconfig.json", document.location.href).href}`}
+								className="text-rs-accent hover:underline"
+							>
+								Click here to add this app to Alt1!
+							</a>
+						</div>
+					)}
+					<Overview />
+				</div>
 			</div>
 		</div>
 	);
