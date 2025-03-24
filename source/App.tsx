@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { LINE_REGULAR_EXPRESSION } from "./utility/constants";
 import { isEqualColourTriplet } from "./utility/functions";
 import { SiDiscord, SiGithub } from "@icons-pack/react-simple-icons";
-import Overview from "./components/overview";
+import Overview from "./components/Overview";
 
 interface Message {
 	player_name: string;
