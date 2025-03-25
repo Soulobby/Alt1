@@ -83,6 +83,8 @@ const App: React.FC = () => {
 								lastMessage.message += ` ${option.text}`;
 							}
 						}
+
+						console.info(option);
 					}
 
 					for (const message of messages) {
