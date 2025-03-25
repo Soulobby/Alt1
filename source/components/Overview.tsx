@@ -1,5 +1,5 @@
 import type React from "react";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 
 interface Overview {
 	aminishi_gem_trader: number | null;
@@ -11,24 +11,31 @@ interface Overview {
 
 const Overview: React.FC = () => {
 	const [overview, setOverview] = useState<Overview | null>(null);
-	const [error, setError] = useState<boolean>(false);
-
-	const fetchOverview = useCallback(async () => {
-		try {
-			const response = await fetch("https://api.soulobby.com/overview");
-			const data = await response.json();
-			setOverview(data);
-		} catch (error) {
-			console.error(error);
-			setError(true);
-		}
-	}, []);
 
 	useEffect(() => {
-		fetchOverview();
-		const overviewInterval = setInterval(fetchOverview, 60000);
-		return () => clearInterval(overviewInterval);
-	}, [fetchOverview]);
+		const eventSource = new EventSource("https://api.soulobby.com/overview/server-sent-events");
+
+		eventSource.onerror = (error) => {
+			console.error(error);
+
+			// Attempt to reconnect.
+			setTimeout(() => {
+				eventSource.close();
+			}, 5000);
+		};
+
+		eventSource.addEventListener("connected", (event: MessageEvent) => {
+			const data = JSON.parse(event.data) as Overview;
+			setOverview(data);
+		});
+
+		eventSource.addEventListener("update", (event: MessageEvent) => {
+			const data = JSON.parse(event.data) as Overview;
+			setOverview(data);
+		});
+
+		return () => eventSource.close();
+	}, []);
 
 	return (
 		<div className="mt-6">
@@ -72,10 +79,6 @@ const Overview: React.FC = () => {
 								: overview.tuai_leit_gem_trader ?? "Unknown"}
 						</p>
 					</div>
-				</div>
-			) : error ? (
-				<div className="mt-6">
-					<p className="text-center">There was an error. Best report this!</p>
 				</div>
 			) : (
 				<p className="text-center">Loading overview!</p>
