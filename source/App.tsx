@@ -1,11 +1,11 @@
+import { SiDiscord, SiGithub } from "@icons-pack/react-simple-icons";
 import ChatBoxReader from "alt1/chatbox";
 import type { ColortTriplet } from "alt1/ocr";
 import type React from "react";
 import { useEffect, useState } from "react";
+import Overview from "./components/Overview";
 import { LINE_REGULAR_EXPRESSION } from "./utility/constants";
 import { isEqualColourTriplet } from "./utility/functions";
-import { SiDiscord, SiGithub } from "@icons-pack/react-simple-icons";
-import Overview from "./components/Overview";
 
 interface Message {
 	player_name: string;
