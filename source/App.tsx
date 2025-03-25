@@ -56,7 +56,8 @@ const App: React.FC = () => {
 							}
 
 							const content = `\`${time}\` \`${name}\`: ${message}`;
-							const [hours, minutes, seconds] = time.slice(1, -1).split(":");
+							const [hours, minutes, seconds] = time.slice(1, -1).split(/:|;/);
+
 							const timestamp = new Date().setHours(
 								Number(hours),
 								Number(minutes),
