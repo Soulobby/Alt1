@@ -112,7 +112,7 @@ const App: React.FC = () => {
 			} catch (error) {
 				console.error(error);
 			} finally {
-				setTimeout(monitor, 100);
+				setTimeout(monitor, 250);
 			}
 		};
 
