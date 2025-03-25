@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Overview from "./components/Overview";
 import { LINE_REGULAR_EXPRESSION } from "./utility/constants";
 import { isEqualColourTriplet } from "./utility/functions";
+import Calls from "./components/Calls";
 
 interface Message {
 	player_name: string;
@@ -152,6 +153,7 @@ const App: React.FC = () => {
 							</a>
 						</div>
 					)}
+					<Calls />
 					<Overview />
 				</div>
 			</div>
