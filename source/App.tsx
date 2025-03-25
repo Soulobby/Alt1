@@ -39,14 +39,9 @@ const App: React.FC = () => {
 					const messages: Message[] = [];
 
 					for (const option of options) {
-						// Ensure there are a minimum number of fragments.
-						if (option.fragments.length < 5) {
-							continue;
-						}
-
 						const lineResult = LINE_REGULAR_EXPRESSION.exec(option.text);
 
-						if (lineResult?.groups) {
+						if (option.fragments.length >= 5 && lineResult?.groups) {
 							const { time, fc, name, message } = lineResult.groups as {
 								time: string;
 								fc: string;
