@@ -15,7 +15,7 @@ export default defineConfig({
 		emptyOutDir: true,
 		assetsDir: ".",
 		rollupOptions: {
-			external: ["sharp", "canvas", "electron/common"],
+			external: ["sharp", "canvas"],
 			output: {
 				entryFileNames: "main.js",
 			},
