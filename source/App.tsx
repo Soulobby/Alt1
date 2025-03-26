@@ -122,6 +122,7 @@ const App: React.FC = () => {
 		<div className="p-4">
 			<div className="fixed top-4 right-4 flex space-x-2">
 				<a
+					aria-label="Discord"
 					href="https://discord.gg/tucxgUNzZ4"
 					target="_blank"
 					rel="noopener noreferrer"
