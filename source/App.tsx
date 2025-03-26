@@ -142,7 +142,12 @@ const App: React.FC = () => {
 			</div>
 			<div className="flex-grow flex justify-center items-center">
 				<div className="text-center">
-					{!isAlt1Detected && (
+					{isAlt1Detected ? (
+						<>
+							<Calls />
+							<Overview />
+						</>
+					) : (
 						<div className="alt1-warning">
 							<p>Alt1 not detected!</p>
 							<a
@@ -153,8 +158,6 @@ const App: React.FC = () => {
 							</a>
 						</div>
 					)}
-					<Calls />
-					<Overview />
 				</div>
 			</div>
 		</div>
