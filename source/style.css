@@ -26,6 +26,6 @@
 
 @layer utilities {
 	body.nis {
-		@apply bg-rs-dark text-white min-h-screen;
+		@apply bg-rs-dark text-white;
 	}
 }
