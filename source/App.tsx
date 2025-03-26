@@ -119,7 +119,7 @@ const App: React.FC = () => {
 	};
 
 	return (
-		<div className="p-4">
+		<div className="p-4 min-h-screen flex flex-col">
 			<div className="fixed top-4 right-4 flex space-x-2">
 				<a
 					aria-label="Discord"
@@ -140,7 +140,7 @@ const App: React.FC = () => {
 					<SiGithub className="h-5 w-5" />
 				</a>
 			</div>
-			<div className="flex justify-center items-center min-h-screen">
+			<div className="flex-grow flex justify-center items-center">
 				<div className="text-center">
 					{!isAlt1Detected && (
 						<div className="alt1-warning">
