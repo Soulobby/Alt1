@@ -48,7 +48,7 @@ const Overview: React.FC = () => {
 						<p className="mt-2 text-sm">
 							{overview.aminishi_gem_trader === -1
 								? "None"
-								: overview.aminishi_gem_trader ?? "Unknown"}
+								: (overview.aminishi_gem_trader ?? "Unknown")}
 						</p>
 					</div>
 					<div className="p-2 bg-blue-500 border border-blue-600 shadow rounded-md">
@@ -58,7 +58,7 @@ const Overview: React.FC = () => {
 						<p className="mt-2 text-sm">
 							{overview.gullible_tourist === -1
 								? "None"
-								: overview.gullible_tourist?.join(" | ") ?? "Unknown"}
+								: (overview.gullible_tourist?.join(" | ") ?? "Unknown")}
 						</p>
 					</div>
 					<div className="p-2 bg-blue-500 border border-blue-600 shadow rounded-md">
@@ -66,7 +66,7 @@ const Overview: React.FC = () => {
 							<span className="text-yellow-400 font-medium w-full">Riddler Crab</span>
 						</div>
 						<p className="mt-2 text-sm">
-							{overview.riddler_crab === -1 ? "None" : overview.riddler_crab ?? "Unknown"}
+							{overview.riddler_crab === -1 ? "None" : (overview.riddler_crab ?? "Unknown")}
 						</p>
 					</div>
 					<div className="p-2 bg-blue-500 border border-blue-600 shadow rounded-md">
@@ -76,7 +76,7 @@ const Overview: React.FC = () => {
 						<p className="mt-2 text-sm">
 							{overview.tuai_leit_gem_trader === -1
 								? "None"
-								: overview.tuai_leit_gem_trader ?? "Unknown"}
+								: (overview.tuai_leit_gem_trader ?? "Unknown")}
 						</p>
 					</div>
 				</div>
