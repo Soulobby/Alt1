@@ -21,19 +21,5 @@ export default defineConfig({
 			},
 		},
 	},
-	plugins: [
-		react(),
-		// For Alt1's unique requirements, we need to keep some behaviours consistent.
-		{
-			name: "alt1-compatibility",
-			transformIndexHtml(html) {
-				return html.replace(
-					"</head>",
-					`  <link rel="stylesheet" type="text/css" href="https://runeapps.org/nis/nis.css" />
-<link rel="stylesheet" type="text/css" href="https://runeapps.org/runeappslib.css" />
-</head>`,
-				);
-			},
-		},
-	],
+	plugins: [react()],
 });

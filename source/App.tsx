@@ -141,7 +141,6 @@ const App: React.FC = () => {
 			</div>
 			<div className="flex justify-center items-center min-h-screen">
 				<div className="text-center">
-					<h1 className="text-2xl font-bold text-blue-500">Soulobby</h1>
 					{!isAlt1Detected && (
 						<div className="alt1-warning">
 							<p>Alt1 not detected!</p>

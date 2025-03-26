@@ -81,7 +81,7 @@ const Overview: React.FC = () => {
 					</div>
 				</div>
 			) : (
-				<p className="text-center">Loading overview!</p>
+				<p className="text-center text-sm">Loading overview!</p>
 			)}
 		</div>
 	);

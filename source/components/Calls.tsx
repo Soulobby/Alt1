@@ -102,7 +102,7 @@ const Calls: React.FC = () => {
 	return (
 		<div className="mt-4">
 			{calls === null ? (
-				<p className="text-center">Loading calls!</p>
+				<p className="text-center text-sm">Loading calls!</p>
 			) : calls.length > 0 ? (
 				<div className="space-y-1">
 					{calls.map((call) => (
