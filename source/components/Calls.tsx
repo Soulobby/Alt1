@@ -108,7 +108,7 @@ const Calls: React.FC = () => {
 					{calls.map((call) => (
 						<div
 							key={call.world}
-							className="bg-blue-500 flex justify-between items-center p-1 text-white text-xs border border-white rounded shadow"
+							className="bg-blue-500 flex justify-between items-center p-1 text-xs border border-white rounded shadow"
 						>
 							<div>
 								<span className="mr-1">{call.world}</span>
