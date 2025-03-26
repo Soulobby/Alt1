@@ -41,9 +41,9 @@ const Overview: React.FC = () => {
 		<div className="mt-6">
 			{overview ? (
 				<div className="grid grid-cols-2 gap-4">
-					<div className="p-2 bg-blue-500 border border-blue-600 shadow rounded-md">
+					<div>
 						<div className="flex justify-between items-center">
-							<span className="text-yellow-400 font-medium w-full">Aminishi Gem Trader</span>
+							<span className="text-sm w-full">Aminishi Gem Trader</span>
 						</div>
 						<p className="mt-2 text-sm">
 							{overview.aminishi_gem_trader === -1
@@ -51,9 +51,9 @@ const Overview: React.FC = () => {
 								: (overview.aminishi_gem_trader ?? "Unknown")}
 						</p>
 					</div>
-					<div className="p-2 bg-blue-500 border border-blue-600 shadow rounded-md">
+					<div>
 						<div className="flex justify-between items-center">
-							<span className="text-yellow-400 font-medium w-full">Gullible Tourist</span>
+							<span className="text-sm w-full">Gullible Tourist</span>
 						</div>
 						<p className="mt-2 text-sm">
 							{overview.gullible_tourist === -1
@@ -61,17 +61,17 @@ const Overview: React.FC = () => {
 								: (overview.gullible_tourist?.join(" | ") ?? "Unknown")}
 						</p>
 					</div>
-					<div className="p-2 bg-blue-500 border border-blue-600 shadow rounded-md">
+					<div>
 						<div className="flex justify-between items-center">
-							<span className="text-yellow-400 font-medium w-full">Riddler Crab</span>
+							<span className="text-sm w-full">Riddler Crab</span>
 						</div>
 						<p className="mt-2 text-sm">
 							{overview.riddler_crab === -1 ? "None" : (overview.riddler_crab ?? "Unknown")}
 						</p>
 					</div>
-					<div className="p-2 bg-blue-500 border border-blue-600 shadow rounded-md">
+					<div>
 						<div className="flex justify-between items-center">
-							<span className="text-yellow-400 font-medium w-full">Tuai Leit Gem Trader</span>
+							<span className="text-sm w-full">Tuai Leit Gem Trader</span>
 						</div>
 						<p className="mt-2 text-sm">
 							{overview.tuai_leit_gem_trader === -1
