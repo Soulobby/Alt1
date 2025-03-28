@@ -1,5 +1,6 @@
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
+import CountdownTimer from "./CountdownTimer";
 
 enum CallType {
 	SoulObelisk = 0,
@@ -118,11 +119,7 @@ const Calls: React.FC = () => {
 										: "Scarabs"}
 								</span>
 							</div>
-							<p className="italic">
-								{Intl.DateTimeFormat("en-GB", { timeZone: "UTC", timeStyle: "medium" }).format(
-									Date.parse(call.expires_at),
-								)}
-							</p>
+							<CountdownTimer expiresAt={call.expires_at} />
 						</div>
 					))}
 				</div>
