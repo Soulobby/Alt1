@@ -141,38 +141,40 @@ const App: React.FC = () => {
 					<SiGithub className="h-5 w-5" />
 				</a>
 			</div>
-			<div className="flex-grow flex flex-col justify-center items-center">
+			{isAlt1Detected && (
+				<div className="fixed top-0 left-0 right-0 z-10 bg-rs-dark border-b border-gray-700 shadow-md">
+					<div className="flex max-w-md mx-auto">
+						<button
+							type="button"
+							className={`flex-1 py-3 px-4 text-sm font-medium ${
+								activeTab === TabType.Calls
+									? "text-rs-accent border-b-2 border-rs-accent"
+									: "text-gray-400 hover:text-gray-300"
+							}`}
+							onClick={() => setActiveTab(TabType.Calls)}
+						>
+							Calls
+						</button>
+						<button
+							type="button"
+							className={`flex-1 py-3 px-4 text-sm font-medium ${
+								activeTab === TabType.Overview
+									? "text-rs-accent border-b-2 border-rs-accent"
+									: "text-gray-400 hover:text-gray-300"
+							}`}
+							onClick={() => setActiveTab(TabType.Overview)}
+						>
+							Overview
+						</button>
+					</div>
+				</div>
+			)}
+			<div className="flex-grow flex flex-col justify-center items-center pt-14">
 				<div className="text-center w-full max-w-md">
 					{isAlt1Detected ? (
-						<>
-							<div className="flex border-b border-gray-700 mb-4">
-								<button
-									type="button"
-									className={`flex-1 py-2 px-4 text-sm font-medium ${
-										activeTab === TabType.Calls
-											? "text-rs-accent border-b-2 border-rs-accent"
-											: "text-gray-400 hover:text-gray-300"
-									}`}
-									onClick={() => setActiveTab(TabType.Calls)}
-								>
-									Calls
-								</button>
-								<button
-									type="button"
-									className={`flex-1 py-2 px-4 text-sm font-medium ${
-										activeTab === TabType.Overview
-											? "text-rs-accent border-b-2 border-rs-accent"
-											: "text-gray-400 hover:text-gray-300"
-									}`}
-									onClick={() => setActiveTab(TabType.Overview)}
-								>
-									Overview
-								</button>
-							</div>
-							<div className="tab-content">
-								{activeTab === TabType.Calls ? <Calls /> : <Overview />}
-							</div>
-						</>
+						<div className="tab-content">
+							{activeTab === TabType.Calls ? <Calls /> : <Overview />}
+						</div>
 					) : (
 						<div className="alt1-warning">
 							<p>Alt1 not detected!</p>
