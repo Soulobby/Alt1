@@ -5,7 +5,7 @@ import type React from "react";
 import { useEffect, useState } from "react";
 import Calls from "./components/Calls";
 import Overview from "./components/Overview";
-import { LINE_REGULAR_EXPRESSION } from "./utility/constants";
+import { LINE_REGULAR_EXPRESSION, TabType } from "./utility/constants";
 import { isEqualColourTriplet } from "./utility/functions";
 
 interface Message {
@@ -16,6 +16,7 @@ interface Message {
 
 const App: React.FC = () => {
 	const [isAlt1Detected] = useState<boolean>(!!window.alt1);
+	const [activeTab, setActiveTab] = useState<TabType>(TabType.Calls);
 
 	useEffect(() => {
 		if (window.alt1) {
@@ -140,12 +141,37 @@ const App: React.FC = () => {
 					<SiGithub className="h-5 w-5" />
 				</a>
 			</div>
-			<div className="flex-grow flex justify-center items-center">
-				<div className="text-center">
+			<div className="flex-grow flex flex-col justify-center items-center">
+				<div className="text-center w-full max-w-md">
 					{isAlt1Detected ? (
 						<>
-							<Calls />
-							<Overview />
+							<div className="flex border-b border-gray-700 mb-4">
+								<button
+									type="button"
+									className={`flex-1 py-2 px-4 text-sm font-medium ${
+										activeTab === TabType.Calls
+											? "text-rs-accent border-b-2 border-rs-accent"
+											: "text-gray-400 hover:text-gray-300"
+									}`}
+									onClick={() => setActiveTab(TabType.Calls)}
+								>
+									Calls
+								</button>
+								<button
+									type="button"
+									className={`flex-1 py-2 px-4 text-sm font-medium ${
+										activeTab === TabType.Overview
+											? "text-rs-accent border-b-2 border-rs-accent"
+											: "text-gray-400 hover:text-gray-300"
+									}`}
+									onClick={() => setActiveTab(TabType.Overview)}
+								>
+									Overview
+								</button>
+							</div>
+							<div className="tab-content">
+								{activeTab === TabType.Calls ? <Calls /> : <Overview />}
+							</div>
 						</>
 					) : (
 						<div className="alt1-warning">
