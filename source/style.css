@@ -15,11 +15,32 @@
 	::file-selector-button {
 		border-color: var(--color-gray-200, currentColor);
 	}
+
+	html,
+	body {
+		height: 100%;
+		overflow: hidden;
+	}
+
+	.overflow-y-auto::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	.overflow-y-auto::-webkit-scrollbar-thumb {
+		background-color: var(--color-rs-light);
+		border-radius: 3px;
+	}
+
+	.overflow-y-auto::-webkit-scrollbar-track {
+		background-color: var(--color-rs-medium);
+		border-radius: 3px;
+	}
 }
 
 @utility alt1-warning {
 	@apply p-4 bg-yellow-500/20 border border-yellow-500 rounded-md mb-4;
 }
+
 @utility social-icon {
 	@apply inline-flex mx-1 text-gray-400 hover:text-rs-accent transition-colors;
 }
@@ -31,5 +52,40 @@
 
 	.tab-content {
 		@apply w-full;
+		height: calc(100vh - 100px);
+		display: flex;
+		flex-direction: column;
+	}
+
+	.calls-container {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		overflow: visible;
+		padding-right: 2px;
+	}
+
+	.calls-list {
+		overflow-y: auto !important;
+		flex: 1 1 auto;
+		padding: 4px 10px 4px 4px;
+		display: block;
+		scrollbar-width: thin;
+		max-height: none; /* Remove max-height constraint */
+	}
+
+	.calls-list::-webkit-scrollbar {
+		width: 6px;
+		display: block;
+	}
+
+	.calls-list::-webkit-scrollbar-thumb {
+		background-color: var(--color-rs-light);
+		border-radius: 3px;
+	}
+
+	.calls-list::-webkit-scrollbar-track {
+		background-color: var(--color-rs-medium);
+		border-radius: 3px;
 	}
 }

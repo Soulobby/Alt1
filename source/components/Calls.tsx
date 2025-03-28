@@ -101,13 +101,13 @@ const Calls: React.FC = () => {
 	}, []);
 
 	return (
-		<div className="mt-4">
+		<div className="calls-container">
 			{calls === null ? (
 				<p className="text-center text-sm">Loading calls!</p>
 			) : calls.length > 0 ? (
-				<div className="space-y-1 border border-white rounded shadow p-1">
+				<div className="calls-list">
 					{calls.map((call) => (
-						<div key={call.world} className="flex justify-between items-center text-xs">
+						<div key={call.world} className="flex justify-between items-center text-xs p-1">
 							<div>
 								<span className="mr-1">{call.world}</span>
 								<span>

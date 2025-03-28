@@ -120,8 +120,8 @@ const App: React.FC = () => {
 	};
 
 	return (
-		<div className="p-4 min-h-screen flex flex-col">
-			<div className="fixed bottom-4 left-4 flex space-x-2 z-20">
+		<div className="flex flex-col h-screen overflow-hidden">
+			<div className="fixed bottom-2 left-2 flex space-x-2 z-20">
 				<a
 					aria-label="Discord"
 					href="https://discord.gg/tucxgUNzZ4"
@@ -142,7 +142,7 @@ const App: React.FC = () => {
 				</a>
 			</div>
 			{isAlt1Detected && (
-				<div className="fixed top-0 left-0 right-0 z-10 bg-rs-dark border-b border-gray-700 shadow-md">
+				<div className="sticky top-0 z-10 bg-rs-dark border-b border-gray-700 shadow-md">
 					<div className="flex max-w-md mx-auto">
 						<button
 							type="button"
@@ -169,25 +169,27 @@ const App: React.FC = () => {
 					</div>
 				</div>
 			)}
-			<div className="flex-grow flex flex-col justify-center items-center pt-14">
-				<div className="text-center w-full max-w-md">
-					{isAlt1Detected ? (
+			{isAlt1Detected ? (
+				<div className="flex-grow flex flex-col p-4 mb-16 overflow-visible">
+					<div className="flex-grow w-full max-w-md mx-auto relative">
 						<div className="tab-content">
 							{activeTab === TabType.Calls ? <Calls /> : <Overview />}
 						</div>
-					) : (
-						<div className="alt1-warning">
-							<p>Alt1 not detected!</p>
-							<a
-								href={`alt1://addapp/${new URL("./appconfig.json", document.location.href).href}`}
-								className="text-rs-accent hover:underline"
-							>
-								Click here to add this app to Alt1!
-							</a>
-						</div>
-					)}
+					</div>
 				</div>
-			</div>
+			) : (
+				<div className="flex-grow flex items-center justify-center">
+					<div className="alt1-warning text-center w-full max-w-md">
+						<p>Alt1 not detected!</p>
+						<a
+							href={`alt1://addapp/${new URL("./appconfig.json", document.location.href).href}`}
+							className="text-rs-accent hover:underline"
+						>
+							Click here to add this app to Alt1!
+						</a>
+					</div>
+				</div>
+			)}
 		</div>
 	);
 };
