@@ -121,7 +121,7 @@ const App: React.FC = () => {
 
 	return (
 		<div className="p-4 min-h-screen flex flex-col">
-			<div className="fixed top-4 right-4 flex space-x-2">
+			<div className="fixed bottom-4 left-4 flex space-x-2 z-20">
 				<a
 					aria-label="Discord"
 					href="https://discord.gg/tucxgUNzZ4"
