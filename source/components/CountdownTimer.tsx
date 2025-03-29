@@ -1,8 +1,8 @@
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
 
-function formatTimeLeft(expiresAt: string) {
-	const timeRemaining = Date.parse(expiresAt) - Date.now();
+function formatTimeLeft(expiresAt: number) {
+	const timeRemaining = expiresAt - Date.now();
 
 	if (timeRemaining <= 0) {
 		return "Expired";
@@ -16,7 +16,7 @@ function formatTimeLeft(expiresAt: string) {
 }
 
 interface CountdownTimerProps {
-	expiresAt: string;
+	expiresAt: number;
 }
 
 const CountdownTimer: React.FC<CountdownTimerProps> = ({ expiresAt }) => {

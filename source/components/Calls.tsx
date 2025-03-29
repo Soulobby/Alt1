@@ -39,16 +39,16 @@ interface Call {
 	world: number;
 	type: CallType;
 	location: CallLocation;
-	last_updated: string;
-	expires_at: string;
+	created_at: number;
+	expires_at: number;
 }
 
 function filterActiveCalls(callsData: Call[]) {
 	const now = Date.now();
 
 	return callsData
-		.filter((call) => Date.parse(call.expires_at) > now)
-		.sort((a, b) => Date.parse(a.expires_at) - Date.parse(b.expires_at));
+		.filter((call) => call.expires_at > now)
+		.sort((a, b) => a.expires_at - b.expires_at);
 }
 
 const Calls: React.FC = () => {
