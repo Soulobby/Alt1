@@ -58,7 +58,7 @@ const Overview: React.FC = () => {
 						<p className="mt-2 text-sm">
 							{overview.gullible_tourist === -1
 								? "None"
-								: (overview.gullible_tourist?.join(" | ") ?? "Unknown")}
+								: (overview.gullible_tourist?.sort((a, b) => a - b).join(" | ") ?? "Unknown")}
 						</p>
 					</div>
 					<div>
